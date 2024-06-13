@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>光头消消乐</title>
+  <style>
+    html,
+    body {
+      overflow: hidden !important;
+      height: 100% !important;
+      margin: 0;
+      padding: 0;
+      background-color: 0xffffff;
+      position: fixed;
+    }
+
+    .app-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      color: rgb(44, 19, 108);
+      z-index: 100;
+    }
+
+    .app-loading__icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+      animation: app-loading-rotate 0.8s linear infinite;
+    }
+
+    .app-loading__circular {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      background: conic-gradient(from 180deg at 50% 50%,
+          rgba(255, 255, 255, 0) 0deg,
+          rgba(255, 255, 255, 0) 60deg,
+          currentColor 330deg,
+          rgba(255, 255, 255, 0) 360deg);
+      -webkit-mask: radial-gradient(transparent calc(50% - .5px), #fff 50%);
+      mask: radial-gradient(transparent calc(50% - .5px), #fff 50%);
+    }
+
+
+    @keyframes app-loading-rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-loading" id="loading">
+    <view class="app-loading__icon">
+      <view class="app-loading__circular"></view>
+    </view>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
